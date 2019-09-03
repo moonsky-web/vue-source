@@ -49,7 +49,7 @@ export function initMixin(Vue: Class<Component>) {
     } else {
       vm._renderProxy = vm;
     }
-    // expose real self
+    // expose real self: 自身
     vm._self = vm;
     // 初始化生命周期，不同生命周期钩子的执行位置并不相同
     initLifecycle(vm);

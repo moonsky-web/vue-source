@@ -29,7 +29,8 @@ export function isFalse(v: any): boolean %checks {
  */
 export function isPrimitive(value: any): boolean %checks {
   return (
-    // 只有原始数据的 typeof 出来才会是这些值，通过 new String(...)、new Number(...) 等都是 object
+    // 只有原始数据的 typeof 出来才会是这些值，
+    // 通过 new String(...)、new Number(...) 等都是 object
     typeof value === 'string' ||
     typeof value === 'number' ||
     // $flow-disable-line

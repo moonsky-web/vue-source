@@ -1,27 +1,36 @@
 /* @flow */
 
-import {
-  no,
-  noop,
-  identity
-} from 'shared/util'
+import {identity, no, noop} from 'shared/util';
 
-import { LIFECYCLE_HOOKS } from 'shared/constants'
-// 属性 Vue 文档 API 的应该知道，这些事 Vue 的基本配置信息
+import {LIFECYCLE_HOOKS} from 'shared/constants';
+// 属性 Vue 文档 API 的应该知道，这些是 Vue 的基本配置信息
 //
 export type Config = {
-  // user
+  /**
+   * user
+   */
+  // 自定义合并策略
   optionMergeStrategies: { [key: string]: Function };
+  // 忽略警告
   silent: boolean;
+  // 生产环境提示
   productionTip: boolean;
+  // 性能
   performance: boolean;
   devtools: boolean;
+  // 错误处理
   errorHandler: ?(err: Error, vm: Component, info: string) => void;
+  // 警告处理
   warnHandler: ?(msg: string, vm: Component, trace: string) => void;
+  // 忽略元素 ['customTag']
   ignoredElements: Array<string | RegExp>;
+  // 按键码映射 {enter: 13, esc:27}
   keyCodes: { [key: string]: number | Array<number> };
 
-  // platform
+  /**
+   * platform
+   * @param x
+   */
   isReservedTag: (x?: string) => boolean;
   isReservedAttr: (x?: string) => boolean;
   parsePlatformTagName: (x: string) => string;
@@ -29,10 +38,14 @@ export type Config = {
   getTagNamespace: (x?: string) => string | void;
   mustUseProp: (tag: string, type: ?string, name: string) => boolean;
 
-  // private
+  /**
+   * private
+   */
   async: boolean;
 
-  // legacy
+  /**
+   * legacy
+   */
   _lifecycleHooks: Array<string>;
 };
 
@@ -127,5 +140,5 @@ export default ({
   /**
    * Exposed for legacy reasons
    */
-  _lifecycleHooks: LIFECYCLE_HOOKS
-}: Config)
+  _lifecycleHooks: LIFECYCLE_HOOKS,
+}: Config);
